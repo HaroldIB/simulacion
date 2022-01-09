@@ -44,12 +44,14 @@ function init(){
     t0 = new Date().getTime();
     t = 0;
     animFrame();
+    
 };
 
 function animFrame(){
     animId = requestAnimationFrame(animFrame,canvas);
     onTimer();
     drawGrill();
+    drawScreen();
 };
 
 function onTimer(){
@@ -74,3 +76,18 @@ function move(){
 function stop(){
     cancelAnimationFrame(animId);
 };
+
+function drawScreen() {
+    //background
+    context.fillStyle = "#ffffaa";
+    context.fillRect(0, 0, 700, 60);    
+    //text
+    context.fillStyle    = "#000000";
+    context.font         = "20px _sans";
+    context.textBaseline = "top";
+    context.fillText  ("Movimiento Rectilíneo Uniforme", 200, 20 );
+    //box
+    context.strokeStyle = "#000000"; 
+    context.strokeRect(5,  5, 690, 50);
+}
+
